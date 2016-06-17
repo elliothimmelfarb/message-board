@@ -1,0 +1,21 @@
+{
+  "name": "message-board",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "v6.2.1"
+  },
+  "author": "Elliot Himmelfarb",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "request": "^2.72.0"
+  }
+}
