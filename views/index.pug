@@ -3,7 +3,25 @@ html(lang="en")
 head
   meta(charset="UTF-8")
   title Message Board
+  script(src='https://code.jquery.com/jquery-2.2.4.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+  script(src="main.js")
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+  link(rel='stylesheet', href='style.css')
 body
-  h1 Message Board!
-  
-  
+  .container-fluid
+    .container  
+      .jumbotron
+        h1 Message Board
+        h3 Post a message:
+        .container
+          form
+            .form-group
+              input.form-control#author(placeholder='Type the name you want shown with you message here...')
+              textarea.form-control#text(placeholder='Type your message here...', rows="8", cols="40")
+              button.btn.btn-success.post(type='submit') Click here to post your message!
+              
+         
+        
+    
+    
