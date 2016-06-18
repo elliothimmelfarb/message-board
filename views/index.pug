@@ -7,7 +7,7 @@ head
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
   script(src="main.js")
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
-  link(rel='stylesheet', href='http://bootswatch.com/darkly/bootstrap.min.css')
+  link(rel='stylesheet', href='assets/bootstrap-slate-theme.css')
   link(rel='stylesheet', href='style.css')
 body
   .container-fluid
@@ -20,7 +20,7 @@ body
             .form-group
               input.form-control#author(placeholder='Type the name you want shown with you message here...')
               textarea.form-control#text(placeholder='Type your message here...', rows="8", cols="40")
-              button.btn.btn-success.post(type='submit') Click here to post your message!
+              button.btn.btn-default.post(type='submit') Click here to post your message!
       .template.msgCard.jumbotron
         .panel.panel-default
           .panel-heading
