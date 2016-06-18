@@ -32,6 +32,16 @@ body {
   margin-bottom: 1px;
 }
 
+.time-col {padding-right: 10px;}
+
+.right {
+  text-align: right:
+}
+
+.panel-body {
+  word-wrap: normal;
+}
+
 .icon {
   font-size: 24px;
   position: relative;
