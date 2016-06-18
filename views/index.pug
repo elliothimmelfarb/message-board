@@ -20,7 +20,7 @@ body
             .form-group
               input.form-control#author(placeholder='Type the name you want shown with you message here...')
               textarea.form-control#text(placeholder='Type your message here...', rows="8", cols="40")
-              button.btn.btn-default.post(type='submit') Click here to post your message!
+              button.btn.btn-success.post(type='submit') Click here to post your message!
       .template.msgCard.jumbotron
         .panel.panel-default
           .panel-heading
@@ -38,8 +38,15 @@ body
             span.time.info at 10:01 PM on Friday, June 16, 2016
           .col-md-5.col-sm-6.col-xs-6 
               span.edited edited at 10:01 PM on Friday, June 16, 2016
-            
-              
+      .jumbotron.bottomInput
+        h3 Post a message:
+        .container
+          form
+            .form-group
+              input.form-control#author(placeholder='Type the name you want shown with you message here...')
+              textarea.form-control#text(placeholder='Type your message here...', rows="8", cols="40")
+              button.btn.btn-success.post(type='submit') Click here to post your message!      
+      
               
          
         

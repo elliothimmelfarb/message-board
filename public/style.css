@@ -21,6 +21,10 @@ body {
   padding-right: -13px;
 }
 
+.bottomInput {
+  padding-top: 1px;
+}
+
 .cardActions {
   float: right;
   position: relative;
