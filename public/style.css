@@ -8,4 +8,19 @@ body {
 
 .jumbotron {
   padding-bottom: 2px;
+  margin-bottom: 10px;
+}
+
+.test {
+  background-color: grey;
+}
+
+.msgCard {
+  text-align: left;
+  padding: 14px 12px;
+  padding-right: -13px;
+}
+
+.well {
+  margin-bottom: 1px;
 }
