@@ -7,6 +7,7 @@ head
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
   script(src="main.js")
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+  link(rel='stylesheet', href='http://bootswatch.com/darkly/bootstrap.min.css')
   link(rel='stylesheet', href='style.css')
 body
   .container-fluid
@@ -21,9 +22,17 @@ body
               textarea.form-control#text(placeholder='Type your message here...', rows="8", cols="40")
               button.btn.btn-success.post(type='submit') Click here to post your message!
       .template.msgCard.jumbotron
-        .msgAuthor Posted by Elliot
-          .well.well-lg
-
+        .panel.panel-default
+          .panel-heading
+            span.msgAuthor Posted by Elliot
+            span.button-div.cardActions
+              button.btn.btn-warning.edit.action
+                span.icon(aria-hidden='true') 
+                  i.glyphicon.glyphicon-pencil
+              button.btn.btn-danger.delete.action
+                span.icon(aria-hidden='true')
+                  i.glyphicon.glyphicon-trash
+          .panel-body
             
         span.time at 10:00 PM on Friday, June 15th
         span.edited
