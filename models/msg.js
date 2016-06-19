@@ -17,7 +17,7 @@ db.run(`create table if not exists messages(
 );`);
 
 exports.get = cb => {
-  rgeadMsgs(cb);
+  db.all('select * from messages', cb);
 };
 
 exports.getOne = (id, cb) => {

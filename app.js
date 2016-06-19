@@ -22,13 +22,13 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 //////////// ROUTES //////////////////
-let msgs_routes = require('./routes/msgs-routes');
+let msgs = require('./routes/msgs');
 
 app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.use('/msgs', msgs_routes);
+app.use('/msgs', msgs);
 
 //////////// APP LISTEN //////////////////
 app.listen(PORT, err => {
