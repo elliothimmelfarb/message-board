@@ -29,8 +29,10 @@ body {
   float: right;
   position: relative;
   bottom: 8px;
-  left: 12px;
+  left: 13px;
 }
+
+.icondiv {width: 357px;float: right;}
 
 .panel {
   margin-bottom: 1px;
@@ -47,9 +49,10 @@ body {
 }
 
 .icon {
-  font-size: 24px;
+  font-size: 21px;
   position: relative;
   top: 3px;
+  margin: 0px 6px;
 }
 
 .action {

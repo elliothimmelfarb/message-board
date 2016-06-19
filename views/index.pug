@@ -6,11 +6,41 @@ head
   script(src='https://code.jquery.com/jquery-2.2.4.min.js')
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
   script(src="main.js")
+  link(rel='stylesheet', href='assets/font-awesome-4.6.3/css/font-awesome.min.css')
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
   link(rel='stylesheet', href='assets/bootstrap-slate-theme.css')
   link(rel='stylesheet', href='style.css')
 body
   .container-fluid
+    nav.navbar.navbar-default
+      .container-fluid
+        .left
+          .navbar-header
+            a.navbar-brand(href="#")
+              p Built by Elliot Himmelfarb
+        .right
+          .icondiv
+            span.github.icon
+              a(href="https://github.com/elliothimmelfarb")
+                i(class="fa fa-github fa-2x" aria-hidden="true")
+            span.linkedin.icon
+              a(href="https://www.linkedin.com/in/elliot-himmelfarb-14347976")
+                i(class="fa fa-linkedin-square fa-2x" aria-hidden="true")    
+            span.stack.icon
+              a(href="http://stackoverflow.com/users/6026912/elliot-himmelfarb")
+                i(class="fa fa-stack-overflow fa-2x" aria-hidden="true")
+            span.twitter.icon
+              a(href="https://twitter.com/e_himmelfarb")
+                i(class="fa fa-twitter-square fa-2x" aria-hidden="true")
+            span.fiddle.icon
+              a(href="https://jsfiddle.net/user/ellioth/fiddles/")
+                i(class="fa fa-jsfiddle fa-2x" aria-hidden="true")
+            span.codepen.icon
+              a(href="http://codepen.io/elliothimmelfarb/")
+                i(class="fa fa-codepen fa-2x" aria-hidden="true")
+            span.blog.icon
+              a(href="http://our-future-is-code.blogspot.com/")
+                i(class="fa fa-font fa-2x" aria-hidden="true")
     .container  
       .jumbotron
         h1 Message Board
@@ -19,8 +49,10 @@ body
           form
             .form-group
               input.form-control#author(placeholder='Type the name you want shown with you message here...')
-              textarea.form-control#text(placeholder='Type your message here...', rows="8", cols="40")
+              textarea.form-control#text(placeholder='Type your message here...', rows="8", cols="30")
               button.btn.btn-success.post(type='submit') Click here to post your message!
+      
+      // Message Card Template
       .template.msgCard.jumbotron
         .panel.panel-default
           .panel-heading
@@ -38,13 +70,15 @@ body
             span.time.info at 10:01 PM on Friday, June 16, 2016
           .col-md-5.col-sm-6.col-xs-6 
               span.edited edited at 10:01 PM on Friday, June 16, 2016
+      
+      // Bottom message input
       .jumbotron.bottomInput
         h3 Post a message:
         .container
           form
             .form-group
               input.form-control#author(placeholder='Type the name you want shown with you message here...')
-              textarea.form-control#text(placeholder='Type your message here...', rows="8", cols="40")
+              textarea.form-control#text(placeholder='Type your message here...', rows="6", cols="30")
               button.btn.btn-success.post(type='submit') Click here to post your message!      
       
               

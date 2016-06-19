@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const msg = require('../models/msgs.js');
+const msg = require('../models/msg');
 
 
 router.get('/', (req, res) => {

@@ -3,11 +3,21 @@
 const fs = require('fs');
 const path = require('path');
 const uuid = require('uuid');
+const sqlite3 = require('sqlite3');
 
-const dataPath = path.join(__dirname, '../data', 'messages.json');
+let dbPath = path.join(__dirname, '../data/messages.db');
+const db = new sqlite3.Database(dbPath);
+
+db.run(`create table if not exists messages(
+  id text,
+  author text,
+  created real,
+  text text,
+  edited real
+);`);
 
 exports.get = cb => {
-  readMsgs(cb);
+  rgeadMsgs(cb);
 };
 
 exports.getOne = (id, cb) => {
@@ -51,6 +61,8 @@ exports.edit = (id, text, cb) => {
   });
 };
 
+
+/*
 function writeMsgs(msgs, cb) {
   fs.writeFile(dataPath, JSON.stringify(msgs), cb);
 }
@@ -66,3 +78,4 @@ function readMsgs(cb) {
     cb(null, msgs);
   });
 }
+*/
