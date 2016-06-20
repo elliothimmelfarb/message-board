@@ -9,12 +9,12 @@ let dbPath = path.join(__dirname, '../data/messages.db');
 const db = new sqlite3.Database(dbPath);
 
 db.run(`create table if not exists messages(
-  id text,
-  author text,
-  created real,
-  text text,
-  edited real
-);`);
+  id TEXT,
+  author TEXT,
+  timestamp REAL,
+  messagetext TEXT,
+  editedtime Real
+)`);
 
 exports.get = cb => {
   db.all('select * from messages', cb);
@@ -29,16 +29,8 @@ exports.getOne = (id, cb) => {
   });
 };
 
-exports.create = (author, text, cb) => {
-  readMsgs((err, msgs) => {
-    let msgObj = {};
-    msgObj.author = author;
-    msgObj.text = text;
-    msgObj.id = uuid();
-    msgObj.created = new Date().getTime();
-    msgs.push(msgObj);
-    writeMsgs(msgs, cb);
-  });
+exports.create = (message, cb) => {
+  db.run('insert into messages values (?,?,?,?,?)', uuid(), message.author, Date.now(), message.text, '', cb);
 };
 
 exports.delete = (id, cb) => {

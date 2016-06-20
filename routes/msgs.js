@@ -20,7 +20,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  Msg.create(req.body.author, req.body.text, err => {
+  Msg.create(req.body, err => {
     if(err) res.status(400).send(err);
     Msg.get((err, msgs) => {
       res.status(err ? 400 : 200).send(err || msgs);
