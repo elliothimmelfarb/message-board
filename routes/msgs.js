@@ -38,7 +38,7 @@ router.delete('/:id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  Msg.edit(req.params.id, req.body.text, err => {
+  Msg.edit(req.params.id, req.body.text, req.body.time, err => {
       res.status(err ? 400 : 200).send(err || 'all good');
   });
 });

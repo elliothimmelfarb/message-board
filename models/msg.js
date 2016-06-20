@@ -32,8 +32,8 @@ exports.create = (message, cb) => {
   db.run('insert into messages values (?,?,?,?,?,?,?)',
     uuid(),
     message.author,
-    Date.now(),
-    moment().format('h:mm:ss a [on] MMMM Do, YYYY'),
+    message.time,
+    moment(message.time).format('h:mm:ss a [on] MMMM Do, YYYY'),
     message.text,
     '',
     '',
@@ -44,8 +44,8 @@ exports.delete = (id, cb) => {
   db.run('delete from messages where id = ?', id, cb);
 };
 
-exports.edit = (id, text, cb) => {
+exports.edit = (id, text, time cb) => {
   db.run('UPDATE messages SET msgtext = ?, editedtimestamp = ?, editedtimestring = ? WHERE id = ?',
-    [text, Date.now(), moment().format('h:mm:ss a [on] MMMM Do, YYYY'), id],
+    [text, time, moment(time).format('h:mm:ss a [on] MMMM Do, YYYY'), id],
     cb);
 };
