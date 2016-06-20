@@ -26,7 +26,7 @@ function accept(event) {
   $.ajax({
     url: `${host}/msgs/${id}`,
     type: 'PUT',
-    data: {text: newText},
+    data: {text: newText, time: Date.now()},
     success: function() {
       renderMessages();
       $('.modal').modal('toggle');
@@ -65,7 +65,7 @@ function postMsg(event) {
   $t.parent().find('.author').val('');
   let text = $t.parent().find('.text').val();
   $t.parent().find('.text').val('');
-  $.post(`${host}/msgs`, {author: author, text:text}, (err) => {
+  $.post(`${host}/msgs`, {author: author, text:text, time: Date.now()}, (err) => {
     renderMessages()
   })
   .fail(err => {
