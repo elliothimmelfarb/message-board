@@ -29,12 +29,7 @@ exports.create = (message, cb) => {
 };
 
 exports.delete = (id, cb) => {
-  readMsgs((err, msgs) => {
-    msgs = msgs.filter(obj => {
-      return obj.id !== id;
-    });
-    writeMsgs(msgs, cb);
-  });
+  db.run('delete from messages where id = ?', id, cb);
 };
 
 exports.edit = (id, text, cb) => {
