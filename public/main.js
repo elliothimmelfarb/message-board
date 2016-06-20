@@ -1,6 +1,6 @@
 'use strict';
 
-let host = '//elliots-message-board.herokuapp.com'
+let host = '//localhost:8000' //'//elliots-message-board.herokuapp.com'
 
 $(document).ready(init);
 
