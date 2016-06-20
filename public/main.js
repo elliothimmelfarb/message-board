@@ -1,6 +1,6 @@
 'use strict';
 
-let host = '//elliots-message-board.herokuapp.com'
+let host = '//localhost:8000'//'//elliots-message-board.herokuapp.com'
 
 $(document).ready(init);
 
@@ -23,10 +23,11 @@ function accept(event) {
   let newText = $('.editText').val();
   console.log(newText);
   let id = $('.modal').data('id');
+  let time = Date.now();
   $.ajax({
     url: `${host}/msgs/${id}`,
     type: 'PUT',
-    data: {text: newText},
+    data: {text: newText, time: time},
     success: function() {
       renderMessages();
       $('.modal').modal('toggle');
@@ -65,7 +66,8 @@ function postMsg(event) {
   $t.parent().find('.author').val('');
   let text = $t.parent().find('.text').val();
   $t.parent().find('.text').val('');
-  $.post(`${host}/msgs`, {author: author, text:text}, (err) => {
+  let time = Date.now();
+  $.post(`${host}/msgs`, {author: author, text: text, time: time}, (err) => {
     renderMessages()
   })
   .fail(err => {

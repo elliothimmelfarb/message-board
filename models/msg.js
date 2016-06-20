@@ -28,12 +28,13 @@ exports.getOne = (id, cb) => {
 };
 
 exports.create = (message, cb) => {
+  console.log(moment(Date.now()).format('h:mm:ss a [on] MMMM Do, YYYY'));
   if(!message.author || !message.text) return cb({error: 'Missing required field'});
   db.run('insert into messages values (?,?,?,?,?,?,?)',
     uuid(),
     message.author,
-    Date.now(),
-    moment().format('h:mm:ss a [on] MMMM Do, YYYY'),
+    message.time, // TODO: FIX TIME MOMENT UNIX TIME CONVERSION
+    moment.unix(message.time / 1000).format('h:mm:ss a [on] MMMM Do, YYYY'),
     message.text,
     '',
     '',
@@ -44,8 +45,9 @@ exports.delete = (id, cb) => {
   db.run('delete from messages where id = ?', id, cb);
 };
 
-exports.edit = (id, text, cb) => {
+exports.edit = (id, body, cb) => {
+  console.log(body);
   db.run('UPDATE messages SET msgtext = ?, editedtimestamp = ?, editedtimestring = ? WHERE id = ?',
-    [text, Date.now(), moment().format('h:mm:ss a [on] MMMM Do, YYYY'), id],
+    [body.text, body.time, moment.unix(body.time / 1000).format('h:mm:ss a [on] MMMM Do, YYYY'), id],
     cb);
 };
