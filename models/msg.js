@@ -33,31 +33,5 @@ exports.delete = (id, cb) => {
 };
 
 exports.edit = (id, text, cb) => {
-  readMsgs((err, msgs) => {
-    let msgObj = msgs.find(obj => {
-      return obj.id === id;
-    });
-    msgObj.text = text;
-    msgObj.edited = new Date().getTime();
-    writeMsgs(msgs, cb);
-  });
+  db.run('update messages set messagetext = ? where id = ?', text, id, cb);
 };
-
-
-/*
-function writeMsgs(msgs, cb) {
-  fs.writeFile(dataPath, JSON.stringify(msgs), cb);
-}
-
-function readMsgs(cb) {
-  fs.readFile(dataPath, (err, data) => {
-    if (err) return cb(err);
-    try {
-      var msgs = JSON.parse(data);
-    } catch (e) {
-      var msgs = [];
-    }
-    cb(null, msgs);
-  });
-}
-*/
