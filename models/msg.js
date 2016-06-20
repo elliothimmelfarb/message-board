@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const uuid = require('uuid');
-const sqlite3 = require('sqlite3');
+const sqlite3 = require('sqlite3').verbose();
 
 let dbPath = path.join(__dirname, '../data/messages.db');
 const db = new sqlite3.Database(dbPath);
@@ -21,12 +21,7 @@ exports.get = cb => {
 };
 
 exports.getOne = (id, cb) => {
-  readMsgs((err, msgs) => {
-    let msg = msgs.find(obj => {
-      return obj.id === id;
-    });
-    cb(null, msg);
-  });
+  db.all('select * from messages where id = ?', id, cb);
 };
 
 exports.create = (message, cb) => {
