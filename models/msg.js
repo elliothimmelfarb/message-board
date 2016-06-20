@@ -6,7 +6,7 @@ const uuid = require('uuid');
 const sqlite3 = require('sqlite3').verbose();
 const moment = require('moment');
 
-let dbPath = path.resolve(__dirname, '../data/messages.db');
+let dbPath = path.join(__dirname, '../data/messages.db');
 const db = new sqlite3.Database(dbPath);
 
 db.run(`create table if not exists messages(
