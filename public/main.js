@@ -1,7 +1,5 @@
 'use strict';
 
-let host = ''//'//elliots-message-board.herokuapp.com'
-
 $(document).ready(init);
 
 function init() {
@@ -25,7 +23,7 @@ function accept(event) {
   let id = $('.modal').data('id');
   let time = Date.now();
   $.ajax({
-    url: `${host}/msgs/${id}`,
+    url: `/msgs/${id}`,
     type: 'PUT',
     data: {text: newText, time: time},
     success: function() {
@@ -50,7 +48,7 @@ function editMsg() {
 function deleteMsg() {
   let id = $(this).parent().parent().parent().parent().data('id');
   $.ajax({
-    url: `${host}/msgs/${id}`,
+    url: `/msgs/${id}`,
     type: 'DELETE',
     success: function() {
       renderMessages();
@@ -66,7 +64,7 @@ function postMsg(event) {
   $t.parent().find('.author').val('');
   let text = $t.parent().find('.text').val();
   $t.parent().find('.text').val('');
-  $.post(`${host}/msgs`, {author: author, text: text}, (err) => {
+  $.post(`/msgs`, {author: author, text: text}, (err) => {
     renderMessages()
   })
   .fail(err => {
@@ -76,7 +74,7 @@ function postMsg(event) {
 
 function renderMessages() {
   let $template = $('.template');
-  $.get(`${host}/msgs/allmessages`)
+  $.get(`/msgs/allmessages`)
     .done(msgs => {
       let $msgs = msgs.map(msg => {
         let $card = $template.clone();
