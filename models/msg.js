@@ -45,10 +45,7 @@ exports.delete = (id, cb) => {
 };
 
 exports.edit = (id, text, cb) => {
-  db.run('update messages set messagetext = ?, editedtimestamp = ?, editedtimestring = ? where id = ?',
-    text,
-    Date.now(),
-    moment.format('h:mm:ss a [on] MMMM Do, YYYY'),
-    id,
+  db.run('UPDATE messages SET msgtext = ?, editedtimestamp = ?, editedtimestring = ? WHERE id = ?',
+    [text, Date.now(), moment().format('h:mm:ss a [on] MMMM Do, YYYY'), id],
     cb);
 };

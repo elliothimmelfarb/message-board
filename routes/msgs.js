@@ -27,27 +27,19 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   Msg.create(req.body, err => {
-    if(err) res.status(400).send(err);
       res.status(err ? 400 : 200).send(err || '');
-
   });
 });
 
 router.delete('/:id', (req, res) => {
   Msg.delete(req.params.id, (err, msgs) => {
-    if(err) res.status(400).send(err);
-    Msg.get((err, msgs) => {
-      res.status(err ? 400 : 200).send(err || msgs);
-    });
+      res.status(err ? 400 : 200).send(err || 'all good');
   });
 });
 
 router.put('/:id', (req, res) => {
   Msg.edit(req.params.id, req.body.text, err => {
-    if(err) res.status(400).send(err);
-    Msg.get((err, msgs) => {
-      res.status(err ? 400 : 200).send(err || msgs);
-    });
+      res.status(err ? 400 : 200).send(err || 'all good');
   });
 });
 

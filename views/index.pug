@@ -47,9 +47,9 @@ body
           .modal-content
             form
               .form-group
-                textarea.form-control.editText(placeholder='Type your message here...', rows="8", cols="30", required)
-                button.btn.btn-success.accept(type='submit') Submit
-                button.btn.btn-warning.cancel(type='submit') Cancel
+                textarea.form-control.editText(rows="5", cols="30", required)
+                button.btn.btn-success.accept Submit
+                button.btn.btn-warning.cancel Cancel
       .jumbotron
         h1 Message Board
         h3 Post a message:
@@ -57,7 +57,7 @@ body
           form
             .form-group
               input.form-control.author(placeholder='Type the name you want shown with you message here...', required)
-              textarea.form-control.text(placeholder='Type your message here...', rows="8", cols="30", required)
+              textarea.form-control.text(type='text' placeholder='Type your message here...', rows="8", cols="30", required)
               button.btn.btn-success.post(type='submit') Click here to post your message!
       .messagesArea
       .templateArea
