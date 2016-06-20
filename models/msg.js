@@ -33,7 +33,7 @@ exports.create = (message, cb) => {
   db.run('insert into messages values (?,?,?,?,?,?,?)',
     uuid(),
     message.author,
-    message.time, // TODO: FIX TIME MOMENT UNIX TIME CONVERSION
+    message.time, 
     moment.unix(message.time / 1000).format('h:mm:ss a [on] MMMM Do, YYYY'),
     message.text,
     '',
