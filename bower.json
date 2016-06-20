@@ -1,0 +1,21 @@
+{
+  "name": "message-board",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Elliot Himmelfarb"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/elliothimmelfarb/message-board",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "moment": "^2.13.0"
+  }
+}

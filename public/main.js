@@ -1,6 +1,6 @@
 'use strict';
 
-let host = '//elliots-message-board.herokuapp.com'
+let host = ''//'//elliots-message-board.herokuapp.com'
 
 $(document).ready(init);
 
@@ -66,8 +66,7 @@ function postMsg(event) {
   $t.parent().find('.author').val('');
   let text = $t.parent().find('.text').val();
   $t.parent().find('.text').val('');
-  let time = Date.now();
-  $.post(`${host}/msgs`, {author: author, text: text, time: time}, (err) => {
+  $.post(`${host}/msgs`, {author: author, text: text}, (err) => {
     renderMessages()
   })
   .fail(err => {
@@ -84,9 +83,9 @@ function renderMessages() {
         $card.removeClass('template');
         $card.find('.msgAuthor').text(msg.author);
         $card.find('.msgText').text(msg.msgtext);
-        $card.find('.time').text(`at ${msg.timestring}`);
+        $card.find('.time').text(`at ${moment(msg.createdAt).format('h:mm:ss a [on] MMMM Do, YYYY')}`);
         $card.data('id', msg.id);
-        if (msg.editedtimestamp) $card.find('.edited').text(`edited at ${msg.editedtimestring}`);
+        if (msg.editedAt) $card.find('.edited').text(`edited at ${moment(msg.editedAt).format('h:mm:ss a [on] MMMM Do, YYYY')}`);
         return $card;
       });
       $msgs.reverse()

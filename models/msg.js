@@ -12,11 +12,9 @@ const db = new sqlite3.Database(dbPath);
 db.run(`create table if not exists messages(
   id TEXT,
   author TEXT,
-  timestamp REAL,
-  timestring TEXT,
+  createdAt TEXT,
   msgtext TEXT,
-  editedtimestamp REAL,
-  editedtimestring TEXT
+  editedAt TEXT
 )`);
 
 exports.get = cb => {
@@ -30,13 +28,11 @@ exports.getOne = (id, cb) => {
 exports.create = (message, cb) => {
   console.log(moment(Date.now()).format('h:mm:ss a [on] MMMM Do, YYYY'));
   if(!message.author || !message.text) return cb({error: 'Missing required field'});
-  db.run('insert into messages values (?,?,?,?,?,?,?)',
+  db.run('insert into messages values (?,?,?,?,?)',
     uuid(),
     message.author,
-    message.time, 
-    moment.unix(message.time / 1000).format('h:mm:ss a [on] MMMM Do, YYYY'),
+    moment().toISOString(),
     message.text,
-    '',
     '',
     cb);
 };
@@ -47,7 +43,7 @@ exports.delete = (id, cb) => {
 
 exports.edit = (id, body, cb) => {
   console.log(body);
-  db.run('UPDATE messages SET msgtext = ?, editedtimestamp = ?, editedtimestring = ? WHERE id = ?',
-    [body.text, body.time, moment.unix(body.time / 1000).format('h:mm:ss a [on] MMMM Do, YYYY'), id],
+  db.run('UPDATE messages SET msgtext = ?, editedAt = ? WHERE id = ?',
+    [body.text, moment().toISOString(), id],
     cb);
 };
