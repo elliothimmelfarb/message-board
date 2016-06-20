@@ -14,10 +14,9 @@ body
   .container-fluid
     nav.navbar.navbar-default
       .container-fluid
-        .left
-          .navbar-header
-            a.navbar-brand(href="#")
-              p Built by Elliot Himmelfarb
+        .navbar-header
+          a.navbar-brand(href="#")
+            p Built by Elliot Himmelfarb
         .right
           .icondiv
             span.github.icon
@@ -40,46 +39,56 @@ body
                 i(class="fa fa-codepen fa-2x" aria-hidden="true")
             span.blog.icon
               a(href="http://our-future-is-code.blogspot.com/")
-                i(class="fa fa-font fa-2x" aria-hidden="true")
-    .container  
+                i(class="fa fa-smile-o fa-2x" aria-hidden="true")
+    .container
+    
+      .modal.fade.bs-example-modal-sm(tabindex='-1', role='dialog', aria-labelledby='mySmallModalLabel')
+        .modal-dialog.modal-sm
+          .modal-content
+            form
+              .form-group
+                textarea.form-control.editText(placeholder='Type your message here...', rows="8", cols="30", required)
+                button.btn.btn-success.accept(type='submit') Submit
+                button.btn.btn-warning.cancel(type='submit') Cancel
       .jumbotron
         h1 Message Board
         h3 Post a message:
         .container
           form
             .form-group
-              input.form-control#author(placeholder='Type the name you want shown with you message here...')
-              textarea.form-control#text(placeholder='Type your message here...', rows="8", cols="30")
+              input.form-control.author(placeholder='Type the name you want shown with you message here...', required)
+              textarea.form-control.text(placeholder='Type your message here...', rows="8", cols="30", required)
               button.btn.btn-success.post(type='submit') Click here to post your message!
-      
-      // Message Card Template
-      .template.msgCard.jumbotron
-        .panel.panel-default
-          .panel-heading
-            span.msgAuthor Posted by Elliot
-            span.button-div.cardActions
-              button.btn.btn-warning.edit.action
-                span.icon(aria-hidden='true') 
-                  i.glyphicon.glyphicon-pencil
-              button.btn.btn-danger.delete.action
-                span.icon(aria-hidden='true')
-                  i.glyphicon.glyphicon-trash
-          .panel-body  
-        .row
-          .col-md-7.col-sm-5.col-xs-6.time-col   
-            span.time.info at 10:01 PM on Friday, June 16, 2016
-          .col-md-5.col-sm-6.col-xs-6 
-              span.edited edited at 10:01 PM on Friday, June 16, 2016
-      
+      .messagesArea
+      .templateArea
+        .template.msgCard.jumbotron
+          .panel.panel-default
+            .panel-heading
+              span.msgAuthor 
+              span.button-div.cardActions
+                button.btn.btn-warning.edit.action
+                  span.icon(aria-hidden='true') 
+                    i.glyphicon.glyphicon-pencil
+                button.btn.btn-danger.delete.action
+                  span.icon(aria-hidden='true')
+                    i.glyphicon.glyphicon-trash
+            .panel-body.msgText 
+          .row
+            .col-md-7.col-sm-5.col-xs-6.time-col   
+              span.time.info
+            .col-md-5.col-sm-6.col-xs-6 
+                span.edited 
+
+
       // Bottom message input
-      .jumbotron.bottomInput
-        h3 Post a message:
-        .container
-          form
-            .form-group
-              input.form-control#author(placeholder='Type the name you want shown with you message here...')
-              textarea.form-control#text(placeholder='Type your message here...', rows="6", cols="30")
-              button.btn.btn-success.post(type='submit') Click here to post your message!      
+      //- .jumbotron.bottomInput
+      //-   h3 Post a message:
+      //-   .container
+      //-     form
+      //-       .form-group
+      //-         input.form-control.author(placeholder='Type the name you want shown with you message here...', required)
+      //-         textarea.form-control.text(placeholder='Type your message here...', rows="6", cols="30", required)
+      //-         button.btn.btn-success.post(type='submit') Click here to post your message!      
       
               
          

@@ -8,8 +8,14 @@ const Msg = require('../models/msg');
 router.get('/', (req, res) => {
   Msg.get((err, msgs) => {
     if (err) return res.send(err);
+    res.status(err ? 400 : 200).render(err || 'index', {messages:msgs});
+  });
+});
+
+router.get('/allmessages', (req,res) => {
+  Msg.get((err, msgs) => {
+    if (err) return res.send(err);
     res.status(err ? 400 : 200).send(err || msgs);
-    //res.render('index');
   });
 });
 
@@ -22,9 +28,8 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   Msg.create(req.body, err => {
     if(err) res.status(400).send(err);
-    Msg.get((err, msgs) => {
-      res.status(err ? 400 : 200).send(err || msgs);
-    });
+      res.status(err ? 400 : 200).send(err || '');
+
   });
 });
 
